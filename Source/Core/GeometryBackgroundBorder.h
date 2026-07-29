@@ -71,6 +71,10 @@ private:
 	// Generates triangles by connecting the added vertices.
 	void FillBackground(int index_start);
 
+	/// Softens a closed boundary so it does not depend on renderer multisampling. The ring is given
+	/// as indices into the vertex list, in order around the shape.
+	void AntialiasRing(const Vector<int>& ring);
+
 	// -- Border --
 	// All draw operations place the first and last vertices in the following manner.
 	// Let N be the number of vertices placed, and the numbers be indices into the newly placed vertices:

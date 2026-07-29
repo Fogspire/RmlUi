@@ -53,6 +53,12 @@ public:
 	/// @note Vertex positions are relative to the border-box, vertex texture coordinates are default initialized.
 	static void GenerateBackground(Mesh& mesh, const RenderBox& render_box, ColourbPremultiplied color);
 
+	/// Sets how far the transparent skirt on a background's outer boundary extends, in the units
+	/// geometry is generated in. Backgrounds are otherwise hard-edged and rely on the renderer
+	/// multisampling, which a renderer compositing straight into a swapchain cannot do.
+	/// @param[in] width One rendered pixel expressed in geometry units, or zero to disable.
+	static void SetBackgroundAntialiasWidth(float width);
+
 private:
 	MeshUtilities() = delete;
 };
